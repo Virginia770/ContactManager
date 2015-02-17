@@ -1,0 +1,2 @@
+C:\Users\Carina\AndroidStudioProjects\contact manager project\ContactManagerProject\ContactManager\build\intermediates\classes\debug
+C:\Users\Carina\AndroidStudioProjects\contact manager project\ContactManagerProject\ContactManager\build\intermediates\pre-dexed\debug\support-v4-13.0.0-52246e2798dcc24772a1ca2decbc93a44ccad3f2.jar
