@@ -3,17 +3,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="horizontal"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+              android:layout_height="wrap_content">
 
     <ImageView
         android:layout_width="114dp"
         android:layout_height="114dp"
-        android:id="@+id/ivContactImage" />
+        android:id="@+id/ivContactImage"
+        android:contentDescription="@string/imageContact" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
 
         <TextView
                 android:layout_width="wrap_content"
