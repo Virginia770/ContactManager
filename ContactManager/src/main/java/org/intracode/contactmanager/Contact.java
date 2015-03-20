@@ -2,10 +2,14 @@ package org.intracode.contactmanager;
 
 import android.net.Uri;
 
-/**
- * Created by Johnny Manson on 23.07.13.
- */
-public class Contact {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+//permite q un objeto se pueda pasar de un activity a otro
+//https://geekytheory.com/tutorial-android-10-paso-de-parametros-entre-activities/
+
+
+public class Contact implements Serializable {
 
     private String _name, _phone, _email, _address;
     private Uri _imageURI;

@@ -21,10 +21,11 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity  {
 
     final static int EDIT=0,DELETE=1;
     EditText nameTxt, phoneTxt, emailTxt, addressTxt;
@@ -35,6 +36,7 @@ public class MainActivity extends Activity {
     DatabaseHandler dbHandler;
     int LongClickedItemIndex;
     ArrayAdapter<Contact> contactAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,8 @@ public class MainActivity extends Activity {
             }
         });
 
-        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+        TabHost tabHost;
+        tabHost = (TabHost) findViewById(R.id.tabHost);
 
         tabHost.setup();
 
@@ -135,7 +138,11 @@ public class MainActivity extends Activity {
     public boolean onContextItemSelected(MenuItem item){
             switch (item.getItemId()) {
                 case EDIT:
-
+                    populateList();
+                    editContact(contactAdapter.getItem(LongClickedItemIndex));
+                    //edita de la lista
+                   // Contacts.update(LongClickedItemIndex);
+                    contactAdapter.notifyDataSetChanged();
                     break;
                 case DELETE:
                     //borra en la BD
@@ -147,6 +154,8 @@ public class MainActivity extends Activity {
             }
         return super.onContextItemSelected(item);
     }
+
+
     private boolean contactExists(Contact contact) {
         String name = contact.getName();
         int contactCount = Contacts.size();
@@ -199,10 +208,32 @@ public class MainActivity extends Activity {
         }
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+    public void editContact(Contact contact) {
+
+        //Contact con1=contact;
+        /*contactAdapter = new ContactListAdapter();
+        contactListView.setAdapter(contactAdapter);
+        contactListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {*/
+                Intent intent = new Intent(this, EditContact.class);
+               // intent.putExtra("parameter", con1);
+        //intent.putExtra("parametro", "Artículo número "+(arg2+1));
+                startActivity(intent);
+          /*
+        }
+        });
+        */
+
+
+    }
+
+
 }
